@@ -1,0 +1,18 @@
+# depslib dependency file v1.0
+1480321259 source:d:\codeblocksworkspace\linkedlist\main.cpp
+	<iostream>
+	<List.h>
+	<stdlib.h>
+
+1480246657 source:d:\codeblocksworkspace\linkedlist\src\list.cpp
+	"List.h"
+
+1480321207 d:\codeblocksworkspace\linkedlist\include\list.h
+	<iostream>
+	<stdlib.h>
+
+1480246514 source:d:\codeblocksworkspace\linkedlist\src\listnode.cpp
+	"ListNode.h"
+
+1480247672 d:\codeblocksworkspace\linkedlist\include\listnode.h
+
