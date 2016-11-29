@@ -1,5 +1,5 @@
 # depslib dependency file v1.0
-1480325650 source:d:\codeblocksworkspace\stack\main.cpp
+1480384820 source:d:\codeblocksworkspace\stack\main.cpp
 	<iostream>
 	<Stack.h>
 
@@ -8,9 +8,9 @@
 1480324813 source:d:\codeblocksworkspace\stack\src\listnode.cpp
 	"ListNode.h"
 
-1480325854 d:\codeblocksworkspace\stack\include\listnode.h
+1480404813 d:\codeblocksworkspace\stack\include\listnode.h
 	<iostream>
 
-1480325601 d:\codeblocksworkspace\stack\include\stack.h
+1480404855 d:\codeblocksworkspace\stack\include\stack.h
 	<ListNode.h>
 

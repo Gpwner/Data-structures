@@ -15,7 +15,16 @@ public:
         top=NULL;
     }
     //析构函数
-    ~Stack() {}
+    ~Stack()
+    {
+
+        while(top!=NULL)
+        {
+            ListNode<Type> *tempNode=top;
+            top=top->GetNext();
+            delete tempNode;
+        }
+    }
     //新元素进栈
     void Push(const &x)
     {
@@ -66,10 +75,11 @@ public:
         return num;
     }
     //获取栈顶元素
-    Type Top(){
-    if(top!=NULL)
-        return top->GetData();
-    return NULL;
+    Type Top()
+    {
+        if(top!=NULL)
+            return top->GetData();
+        return NULL;
     }
 private:
     ListNode<Type> *top;
