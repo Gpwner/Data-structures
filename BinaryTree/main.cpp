@@ -22,6 +22,8 @@ int main()
         bin->inOrder(visit);
         cout<<"\n后序遍历："<<endl;
         bin->postOrder(visit);
+        cout<<"\n层次遍历："<<endl;
+        bin->levelOrder(visit);
         cout<<endl;
         cout<<"树的根节点是："<<bin->getRoot()->data;
     }

@@ -1,5 +1,5 @@
 # depslib dependency file v1.0
-1486630029 source:d:\codeblocks_workspace\bt\main.cpp
+1486633090 source:d:\codeblocks_workspace\bt\main.cpp
 	<iostream>
 	<BinaryTree.h>
 	<string>
@@ -7,9 +7,11 @@
 1484972446 source:d:\codeblocks_workspace\bt\src\binarytree.cpp
 	"BinaryTree.h"
 
-1486630152 d:\codeblocks_workspace\bt\include\binarytree.h
+1486637660 d:\codeblocks_workspace\bt\include\binarytree.h
 	<stack>
 	<iostream>
 	<stdlib.h>
 	<istream>
+	<queue>
+	<stack>
 

@@ -4,6 +4,8 @@
 #include<iostream>
 #include<stdlib.h>
 #include<istream>
+#include<queue>
+#include<stack>
 using namespace std;
 //节点结构体
 template <class T>
@@ -15,7 +17,14 @@ struct BinTreeNode
     BinTreeNode():leftChild(NULL),rightChild(NULL) {}
     BinTreeNode(T x,BinTreeNode<T> *l=NULL,BinTreeNode<T> *r=NULL):leftChild(l),rightChild(r),data(x) {}
 };
-
+//后序遍历的非递归算法用到的节点结构体
+template <class T>
+struct stacknode
+{
+    BinTreeNode<T> *ptr;
+    int tag ;
+    stacknode(BinTreeNode<T> *n=NULL):ptr(n),tag(1) {}
+};
 
 //二叉树类
 
@@ -27,7 +36,7 @@ public:
     BinTreeNode<T> *root;
     /** Default constructor */
     BinaryTree():root(NULL) {}
-     //拷贝构造函数
+    //拷贝构造函数
     BinaryTree(const BinaryTree<T> &s)
     {
         root=Copy(s.root);
@@ -71,27 +80,141 @@ public:
     {
         return root;
     }
-    //前序遍历
+////递归算法遍历二叉树
+//    //前序遍历
+//    void preOrder(void(*visit)(BinTreeNode<T> *p))
+//    {
+//        //递归算法
+//        preOrder(root,visit);
+//    }
+//    //中序遍历
+//    void inOrder(void(*visit)(BinTreeNode<T> *p))
+//    {
+//        inOrder(root,visit);
+//    }
+//    //后序遍历
+//    void postOrder(void(*visit)(BinTreeNode<T> *p))
+//    {
+//        postOrder(root,visit);
+//    }
+//
     void preOrder(void(*visit)(BinTreeNode<T> *p))
     {
-        preOrder(root,visit);
+        stack<BinTreeNode<T> *> nodes;
+        BinTreeNode<T> *temp=root;
+        nodes.push(NULL);
+        while(temp!=NULL)
+        {
+            visit(temp);
+            if(temp->rightChild!=NULL)
+            {
+                nodes.push(temp->rightChild);
+            }
+            if(temp->leftChild!=NULL)
+            {
+                temp=temp->leftChild;
+            }
+            else
+            {
+                temp=nodes.top();
+                nodes.pop();
+            }
+        }
     }
     //中序遍历
     void inOrder(void(*visit)(BinTreeNode<T> *p))
     {
-        inOrder(root,visit);
+        stack<BinTreeNode<T> *> nodes;
+        //遍历指针，从根节点开始
+        BinTreeNode<T> *temp=root;
+        do
+        {
+            //遍历指针未到最左下的节点，不空
+            while(NULL!=temp)
+            {
+                //该子树沿途节点进栈
+                nodes.push(temp);
+                temp=temp->leftChild;
+            }
+            if(!nodes.empty())
+            {
+                //栈不为空的时候退栈，访问根节点，遍历指针进入右子女节点
+                temp=nodes.top();
+                visit(temp);
+                nodes.pop();
+                temp=temp->rightChild;
+            }
+        }
+        while(NULL!=temp||!nodes.empty());
     }
     //后序遍历
     void postOrder(void(*visit)(BinTreeNode<T> *p))
     {
-        postOrder(root,visit);
+        stack<stacknode<T> > nodes;
+        stacknode<T> temp;
+        BinTreeNode<T> *p=root;
+        do
+        {
+            while(NULL!=p)
+            {
+                temp.ptr=p;
+                temp.tag=1;
+                nodes.push(temp);
+                p=p->leftChild;
+            }
+            int continue1=1;
+            while(continue1&&!nodes.empty())
+            {
+                temp=nodes.top();
+                nodes.pop();
+                p=temp.ptr;
+                switch(temp.tag)
+                {
+                case 1:
+                    temp.tag=2;
+                    nodes.push(temp);
+                    continue1=0;
+                    p=p->rightChild;
+                    break;
+                case 2:
+                    visit(p);
+                    break;
+                }
+            }
+
+        }
+        while(!nodes.empty());
     }
+
+
+
+
     //层次遍历
-    void levelOrder(void (*visit)(BinTreeNode<T> *p)){}
+    void levelOrder(void (*visit)(BinTreeNode<T> *p))
+    {
+        queue<BinTreeNode<T> *> nodes;
+        BinTreeNode<T> *temp=root;
+        BinTreeNode<T> *tnode;
+        nodes.push(temp);
+        while(!nodes.empty())
+        {
+            tnode=nodes.front();
+            nodes.pop();
+            visit(tnode);
+            if(NULL!=tnode->leftChild)
+            {
+                nodes.push(tnode->leftChild);
+            }
+            if(NULL!=tnode->rightChild)
+            {
+                nodes.push(tnode->rightChild);
+            }
+        }
+    }
     //插入新元素
-    void  Insert(const T &item){}
+    void  Insert(const T &item) {}
     //搜索
-    BinTreeNode<T> *Find(T &item) const{}
+    BinTreeNode<T> *Find(T &item) const {}
     void CreateBinTree()
     {
         CreateBinTree(root);
@@ -135,9 +258,9 @@ protected:
         }
     }
     //插入
-    bool Insert(BinTreeNode<T> *&subTree,const T& x){}
+    bool Insert(BinTreeNode<T> *&subTree,const T& x) {}
     //搜索
-    bool Find(BinTreeNode<T> *subTree,const T& x)const{}
+    bool Find(BinTreeNode<T> *subTree,const T& x)const {}
     //根据值查找结点
     BinTreeNode<T>* Find(BinTreeNode<T> *subTree,const T &x ) {}
     //拷贝
@@ -239,7 +362,6 @@ protected:
             visit(subTree);
         }
     }
-
 };
 
 #endif // BINARYTREE_H
