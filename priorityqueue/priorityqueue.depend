@@ -1,0 +1,12 @@
+# depslib dependency file v1.0
+1486693611 source:d:\codeblocks_workspace\priorityqueue\main.cpp
+	<iostream>
+
+1486692362 source:d:\codeblocks_workspace\priorityqueue\src\pqueue.cpp
+	"PQueue.h"
+
+1486694713 d:\codeblocks_workspace\priorityqueue\include\pqueue.h
+	<assert.h>
+	<iostream>
+	<stdlib.h>
+
