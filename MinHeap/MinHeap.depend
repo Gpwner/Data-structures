@@ -1,0 +1,19 @@
+# depslib dependency file v1.0
+1486701350 source:d:\codeblocks_workspace\minheap\main.cpp
+	<iostream>
+	<MinHeap.h>
+
+1486696017 source:d:\codeblocks_workspace\minheap\src\pqueue.cpp
+	"PQueue.h"
+
+1486696011 d:\codeblocks_workspace\minheap\include\pqueue.h
+	<assert.h>
+	<iostream>
+	<stdlib.h>
+
+1486696067 source:d:\codeblocks_workspace\minheap\src\minheap.cpp
+	"MinHeap.h"
+
+1486701253 d:\codeblocks_workspace\minheap\include\minheap.h
+	<PQueue.h>
+
