@@ -1,0 +1,11 @@
+# depslib dependency file v1.0
+1486908892 source:d:\codeblocks_workspace\bst\main.cpp
+	<iostream>
+	<BST.h>
+
+1486902479 source:d:\codeblocks_workspace\bst\src\bst.cpp
+
+1486908951 d:\codeblocks_workspace\bst\include\bst.h
+	<stdlib.h>
+	<iostream>
+
