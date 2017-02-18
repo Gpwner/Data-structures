@@ -1,0 +1,17 @@
+# depslib dependency file v1.0
+1487428789 source:d:\codeblocks_workspace\graph\main.cpp
+	<iostream>
+	<Graphmtx.h>
+
+1487419089 source:d:\codeblocks_workspace\graph\src\graphmtx.cpp
+
+1487419261 source:d:\codeblocks_workspace\graph\src\graph.cpp
+	"Graph.h"
+
+1487421072 d:\codeblocks_workspace\graph\include\graph.h
+
+1487429001 d:\codeblocks_workspace\graph\include\graphmtx.h
+	<Graph.h>
+	<iostream>
+	<stdlib.h>
+
