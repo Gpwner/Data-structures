@@ -1,0 +1,17 @@
+# depslib dependency file v1.0
+1486976605 source:d:\codeblocks_workspace\avltree\main.cpp
+	<iostream>
+	<AVL.h>
+
+1486973002 source:d:\codeblocks_workspace\avltree\src\bst.cpp
+
+1486976392 source:d:\codeblocks_workspace\avltree\src\avl.cpp
+
+1487395940 d:\codeblocks_workspace\avltree\include\avl.h
+	<stack>
+	<stdlib.h>
+
+1486977062 d:\codeblocks_workspace\avltree\include\bst.h
+	<stdlib.h>
+	<iostream>
+
