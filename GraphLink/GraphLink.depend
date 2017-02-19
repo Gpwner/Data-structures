@@ -1,0 +1,11 @@
+# depslib dependency file v1.0
+1487481050 source:d:\codeblocks_workspace\graphlink\src\graphlink.cpp
+
+1487487617 source:d:\codeblocks_workspace\graphlink\main.cpp
+	<iostream>
+	<Graphlink.h>
+
+1487487518 d:\codeblocks_workspace\graphlink\include\graphlink.h
+	<stdlib.h>
+	<iostream>
+
